@@ -1,7 +1,7 @@
 btvvotefinder
 =============
 
-A simple, mobile-friendly application to show Burlingtonians how proposed political boundary changes will affect them:
+A simple, mobile-friendly application to show Burlingtonians how proposed political boundary changes will affect them. Check it out [here](http://codeforbtv.org/btvvotefinder/).
 
 <img src="http://farm8.staticflickr.com/7328/11895358466_e9a4372125_z.jpg"/>
 
