@@ -88,6 +88,31 @@
           line-height: 20px;
       }
 
+      /* Sticky footer styles
+      -------------------------------------------------- */
+
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto;
+        /* Negative indent footer by its height */
+        margin: 0 auto -60px;
+        /* Pad bottom by footer height */
+        padding: 0 0 60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #footer {
+        height: 60px;
+        background-color: #f5f5f5;
+      }
+
     </style>
     <title>BTV Redistricting</title>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
@@ -212,6 +237,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </style>
   </head>
   <body>
+    <dic id="wrap">
     <div class="container">
       <h1>BTV VoteFinder</h1>
       <h4 class="text-muted">Enter your address to see how the new voting plan affects you:</h4>
@@ -229,21 +255,26 @@ google.maps.event.addDomListener(window, 'load', initialize);
         </div>
       </div>
       <div class="container">
-      <div id="results" class="row">
-        <h2>Will my ward change?</h2>
-        <h2 id="wardchange" class="text-primary">. . .</h2>
-        <h2>What district will I be in?</h2>
-        <h2 id="distchange" class="text-primary">. . .</h2>
-        <h2>Where will I vote?</h2>
-        <h2 id="pollchange" class="text-primary">. . .</h2>
-        <hr>
-        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="margin-bottom:4px;white-space: normal;">
-        What are these changes about?
-        </button>
+        <div id="results" class="row">
+          <h2>Will I be in a different ward?</h2>
+          <h2 id="wardchange" class="text-primary">. . .</h2>
+          <h2>What district will I be in? <a href="http://cdb.io/1c5KR2D" target="_blank">(map)</a></h2>
+          <h2 id="distchange" class="text-primary">. . .</h2>
+          <h2>Where will I vote?</h2>
+          <h2 id="pollchange" class="text-primary">. . .</h2>
+          <hr>
+          <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="margin-bottom:4px;white-space: normal;">
+          What are these changes about?
+          </button>
+        </div>
       </div>
-</div>
-      
+    </div>
       <hr>
+      <div id="footer">
+        <div class="container">
+          <p class="text-muted"><small>A <a href="http://codeforbtv.org/" target="_blank">CodeForBTV</a> project</small></p>
+        </div>
+      </div>
 
       <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -255,7 +286,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
               </div>
               <div class="modal-body">
                 <p>The Burlington city council is proposing changes to the political layout of Vermont's largest municipality, and on town meeting day we'll be voting whether or not to adopt them. These changes are meant to fix current imbalances in the principal of "One person, one vote". <br><br>
-                Under the proposed plan, the city will be structured into smaller <a class="text-success">wards</a> (about 5,000 people) and larger <a class="text-success">districts</a> (about 10,000 people in 2 wards). Each voter will select one ward councilor and one district councilor, for a total of 12 council members.<br><br>Use this app to find out what the proposed plan means for you: which ward and district you belong to, and where your polling place is located. You can learn more about the redistricting process <a href="http://www.burlingtonvt.gov/CityCouncil/Ward-Redistricting/" target="_blank">on the city's web page</a></p>
+                Under the proposed plan, the city will be structured into smaller <a href="http://cdb.io/1c5LOba" target="_blank">wards</a> (about 5,000 people) and larger <a href="http://cdb.io/1c5KR2D" target="_blank">districts</a> (about 10,000 people in 2 wards). Each voter will select one ward councilor and one district councilor, for a total of 12 council members.<br><br>Use this app to find out what the proposed plan means for you: which ward and district you belong to, and where your polling place is located. You can learn more about the redistricting process <a href="http://www.burlingtonvt.gov/CityCouncil/Ward-Redistricting/" target="_blank">on the city's web page</a></p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
