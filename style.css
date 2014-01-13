@@ -1,0 +1,111 @@
+html,body {
+  height: 100%;
+}
+
+#map {
+  height: 350px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.controls {
+  margin-top: 16px;
+  position: absolute;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 52px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+#pac-input {
+  background-color: rgba(255,255,255,0.9);
+  padding: 0 11px 0 13px;
+  width: 75%;
+  font-size: 15px;
+  font-weight: 300;
+  text-overflow: ellipsis;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+  margin-left: -1px;
+  padding-left: 14px;
+  width: 76%;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0;
+}
+
+#type-selector label {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#legend {
+  background: rgba(255,255,255,0.9);
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #c7c7c7;
+}
+
+dl {
+  width: 130px;
+}
+
+dt {
+  float: left;
+  clear: left;
+  width: 30px;
+  height: 20px;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 3px;
+  line-height: 20px;
+  margin: 0 0 .5em;
+}
+
+.new {
+  opacity: 0.5;
+  background-color: #4A336A;
+  color: #4A336A;
+  border: 2px solid #00f;
+}
+
+.old {
+  opacity: 0.7;
+  background-color: #fff;
+  color: #fff;
+  border: 2px dashed #444;
+}
+
+dd {
+  float: left;
+  clear: right;
+  width: 70%;
+  margin: 0 0 0 4%;
+  line-height: 20px;
+}
+
+#target {
+  width: 345px;
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto -50px;
+  padding: 0 0 0px;
+}
+
+#footer {
+  height: 50px;
+  background-color: #f5f5f5;
+  padding-top: 10px;
+}
