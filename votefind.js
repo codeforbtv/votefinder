@@ -40,8 +40,9 @@ function initialize() {
         title: place.name,
         position: place.geometry.location
       });
-      voterLat = marker.position.b;
-      voterLng = marker.position.d;
+      voterLat = marker.position.d;
+      voterLng = marker.position.e;
+      console.log(voterLng);
       markers.push(marker);
       bounds.extend(place.geometry.location);
     }
