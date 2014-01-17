@@ -38,11 +38,10 @@ function initialize() {
       var marker = new google.maps.Marker({
         map: map,
         title: place.name,
-        position: place.geometry.location
+        position: place.geometry.location    
       });
-      voterLat = marker.position.d;
-      voterLng = marker.position.e;
-      console.log(voterLng);
+      voterLat = marker.getPosition().lat();
+      voterLng = marker.getPosition().lng();
       markers.push(marker);
       bounds.extend(place.geometry.location);
     }
