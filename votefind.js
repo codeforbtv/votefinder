@@ -55,7 +55,7 @@ function initialize() {
       type: 'cartodb',
       sublayers: [{
         sql: "SELECT * FROM btv_redistricting WHERE ST_Intersects(the_geom, ST_GeometryFromText('POINT(" + voterLng + " " + voterLat + ")', 4326))",
-        cartocss: "Map{buffer-size:512;}#layer {::old[year=1990]{polygon-opacity:0;line-opacity:0.7;line-width:2.8;line-color: #444;line-dasharray:6,6;}::new[year=2010]{polygon-opacity:0.5;line-opacity:0.6;line-width:1.2;line-color: #0000ff;polygon-fill:#4a336a;}::labels[year=2010]{text-name:'Proposed Ward ' + [ward];text-placement: point;text-face-name: 'DejaVu Sans Book';text-size: 14;text-fill: #000;text-halo-fill: #FFF;text-halo-radius: 2;text-halo-rasterizer:fast;text-dy: -10;text-allow-overlap: true;text-placement-type: dummy;text-label-position-tolerance: 0;}}"
+        cartocss: "Map{buffer-size:512;}#layer {::old[year=1990]{polygon-opacity:0;line-opacity:0.7;line-width:2.8;line-color: #444;line-dasharray:6,6;}::new[year=2010]{polygon-opacity:0.5;line-opacity:0.6;line-width:1.2;line-color: #0000ff;polygon-fill:#4a336a;}::labels[year=2010]{text-name:'Proposed Ward ' + [ward];text-placement: point;text-face-name: 'DejaVu Sans Book';text-size: 14;text-fill: #000;text-halo-fill: #FFF;text-halo-radius: 2;text-dy: -10;text-allow-overlap: true;text-placement-type: dummy;text-label-position-tolerance: 0;}}"
       }]
     }).addTo(map);
     $.getJSON("http://geosprocket.cartodb.com/api/v2/sql?q=SELECT cartodb_id, ward, district, pollingplace, year FROM btv_redistricting WHERE ST_Intersects(the_geom, ST_GeometryFromText('POINT(" + voterLng + " " + voterLat + ")', 4326)) ORDER BY year", function(data) {
