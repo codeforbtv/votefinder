@@ -55,7 +55,7 @@ function initialize() {
       type: 'cartodb',
       sublayers: [{
         sql: "SELECT * FROM btv_redistricting WHERE ST_Intersects(the_geom, ST_GeometryFromText('POINT(" + voterLng + " " + voterLat + ")', 4326))",
-        cartocss: "Map{buffer-size:512;}#layer {::old[year=1990]{polygon-opacity:0;line-opacity:0.7;line-width:2.8;line-color: #444;line-dasharray:6,6;}::new[year=2010]{polygon-opacity:0.5;line-opacity:0.6;line-width:1.2;line-color: #0000ff;polygon-fill:#4a336a;}::labels[year=2010]{text-name:'Proposed Ward ' + [ward];text-placement: point;text-face-name: 'DejaVu Sans Book';text-size: 14;text-fill: #000;text-halo-fill: #FFF;text-halo-radius: 2;text-dy: -10;text-allow-overlap: true;text-placement-type: dummy;text-label-position-tolerance: 0;}}"
+        cartocss: "Map{buffer-size:512;}#layer {::old[year=1990]{polygon-opacity:0;line-opacity:0.7;line-width:2.8;line-color: #444;line-dasharray:6,6;}::new[year=2010]{polygon-opacity:0.5;line-opacity:0.6;line-width:1.2;line-color: #0000ff;polygon-fill:#4a336a;}::labels[year=2010]{text-name:'Ward ' + [ward];text-placement: point;text-face-name: 'DejaVu Sans Book';text-size: 14;text-fill: #000;text-halo-fill: #FFF;text-halo-radius: 2;text-dy: -10;text-allow-overlap: true;text-placement-type: dummy;text-label-position-tolerance: 0;}}"
       }]
     }).addTo(map);
     $.getJSON("http://geosprocket.cartodb.com/api/v2/sql?q=SELECT cartodb_id, ward, district, pollingplace, year FROM btv_redistricting WHERE ST_Intersects(the_geom, ST_GeometryFromText('POINT(" + voterLng + " " + voterLat + ")', 4326)) ORDER BY year", function(data) {
@@ -63,9 +63,9 @@ function initialize() {
       var ward1990 = data.rows[0].ward;
       var ward2010 = data.rows[1].ward;
       if (ward1990 == ward2010) {
-        $('#wardchange').text("No. You will remain in ward " + ward2010 + " under the proposed plan.");
+        $('#wardchange').text("No. You are still in ward " + ward2010 + ".");
       } else {
-        $('#wardchange').text("Yes. You are currently in ward " + ward1990 + ", but you would be in ward " + ward2010 + " under the proposed plan.");
+        $('#wardchange').text("Yes. You were in ward " + ward1990 + ", but now you are in ward " + ward2010 + ".");
       }
       $('#distchange').html("The " + data.rows[1].district + " District   <a class='btn btn-info' href='http://cdb.io/1c5KR2D' target='_blank'>map</a>");
       $('#pollchange').html(data.rows[1].pollingplace + "   <a class='btn btn-info' target='_blank' href='http://maps.google.com/maps?q=" + data.rows[1].pollingplace + " Burlington VT'>map</a>");
